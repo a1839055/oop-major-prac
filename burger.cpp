@@ -24,11 +24,11 @@ Burger::Burger(string n, int p) {
     ingredients = new Ingredient[0];
 }
 
-Ingredient* Burger::getIngredients() {
+Ingredient* Burger::get_ingredients() {
     return ingredients;
 }
 
-void Burger::addIngredient(Ingredient ingredient) {
+void Burger::add_ingredient(Ingredient ingredient) {
     Ingredient* temp = new Ingredient[ingredient_count++];
     for (int i = 0; i < ingredient_count-1; i++) {
         temp[i] = ingredients[i];
@@ -36,19 +36,19 @@ void Burger::addIngredient(Ingredient ingredient) {
     temp[ingredient_count-1] = ingredient;
 };
 
-void Burger::removeIngredient(Ingredient ingredient) {
+void Burger::remove_ingredient(Ingredient ingredient) {
     Ingredient* temp = new Ingredient[ingredient_count--];
     int count = 0;
     for (int i = 0; i < ingredient_count; i++) {
         // Check if the ingredient matches and an ingredient by that name has not already been removed.
-        if (ingredients[i].getName() != ingredient.getName() || count+1 != i) {
+        if (ingredients[i].get_name() != ingredient.get_name() || count+1 != i) {
             ingredients[count++] = ingredients[i];
         }
     }
 }
 
-string Burger::getDisplay() {
-    return "Name: " + getName()+ " Price: $" + to_string(getPrice());
+string Burger::get_display() {
+    return "Name: " + get_name()+ " Price: $" + to_string(get_price());
 }
 
 Burger::~Burger() {

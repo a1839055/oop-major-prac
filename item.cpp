@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string Item::getName() {
+string Item::get_name() {
     return name;
 }
 
@@ -12,7 +12,7 @@ void Item::setName(string n) {
     name = n;
 }
 
-float Item::getPrice() {
+float Item::get_price() {
     return price;
 }
 
@@ -20,6 +20,6 @@ void Item::setPrice(float p) {
     price = p;
 }
 
-string Item::getDisplay() {
-    return "Name: " + getName() + " Price: " + to_string(getPrice());
+string Item::get_display() {
+    return "Name: " + get_name() + " Price: " + to_string(get_price());
 }

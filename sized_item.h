@@ -9,15 +9,15 @@ class SizedItem : public Item {
         float* prices;
         int prices_count;
     public:
-        int getSize();
-        void setSize(int size);
+        int set_size();
+        void set_size(int size);
         
-        float* getPrices();
-        void setPrices(float* prices);
+        float* get_prices();
+        void set_prices(float* prices);
 
-        float getPrice();
+        float get_price();
         
-        string getDisplay();
+        string get_display();
 };
 
 #endif

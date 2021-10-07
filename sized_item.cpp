@@ -1,27 +1,27 @@
 #include "sized_item.h"
 
-int SizedItem::getSize() {
+int SizedItem::set_size() {
     return size;
 }
 
-void SizedItem::setSize(int s) {
+void SizedItem::set_size(int s) {
     if (s >= 0 && s <= prices_count) {
         size = s;
     }
 }
 
-float* SizedItem::getPrices() {
+float* SizedItem::get_prices() {
     return prices;
 }
 
-void SizedItem::setPrices(float* p) {
+void SizedItem::set_prices(float* p) {
     prices = p;
 }
 
-float SizedItem::getPrice() {
-    return getPrices()[getSize()];
+float SizedItem::get_price() {
+    return get_prices()[set_size()];
 }
 
-string SizedItem::getDisplay() {
-    return "Name: " + getName() + " Price: $" + to_string(getPrice());
+string SizedItem::get_display() {
+    return "Name: " + get_name() + " Price: $" + to_string(get_price());
 }

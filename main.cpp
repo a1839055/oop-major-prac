@@ -15,10 +15,10 @@ int main() {
     // Populate this from menu file
     map<string, float> itemPricing = getItemPricing();
 
-    cout << "Welcome to McDonald's!" << endl;
+    cout << "Welcome to McDonald's!" << endl << endl;
     cout << "Pricing:" << endl;
     for (auto const& [item, price]: itemPricing) {
-        cout << item << ": $" << price << endl;
+        cout << "\t" << item << ": $" << price << endl;
     }
 
     int cart_count = 0;

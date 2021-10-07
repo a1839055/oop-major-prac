@@ -16,79 +16,79 @@ using namespace std;
 
 // PAYMENT PARENT
 
-payment::payment(){
+Payment::Payment(){
     
 };
 
-void payment::send_payment_info(){
+void Payment::send_payment_info(){
     
 };
 
-void payment::send_order_to_kitchen(){
+void Payment::send_order_to_kitchen(){
     
 };
 
-bool payment::pay(){
+bool Payment::pay(){
     
 };
 
-payment::~payment(){
+Payment::~Payment(){
     
 };
 
 
 // CASH
 
-cash::cash(){
+Cash::Cash(){
     
 };
 
-int cash::cash_till(){
+int Cash::cash_till(){
     
 };
 
-bool cash::pay(){
+bool Cash::pay(){
     
 };
 
-cash::~cash(){
+Cash::~Cash(){
     
 };
 
 
 // PAYPAL
 
-paypal::paypal(){
+PayPal::PayPal(){
     
 };
 
-bool paypal::connect_to_paypal_servers(){
+bool PayPal::connect_to_paypal_servers(){
     
 };
 
-bool paypal::pay(){
+bool PayPal::pay(){
     
 };
 
-paypal::~paypal(){
+PayPal::~PayPal(){
     
 };
 
 
 // CREDIT CARD
 
-credit_card::credit_card(){
+CreditCard::CreditCard(){
     
 };
 
-bool credit_card::pay(){
+bool CreditCard::pay(){
     
 };
 
-bool credit_card::connect_credit_card_system(){
+bool CreditCard::connect_credit_card_system(){
     
 };
 
-credit_card::~credit_card(){
+CreditCard::~CreditCard(){
     
 };

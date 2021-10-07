@@ -17,11 +17,11 @@ class Burger: public Item {
         Burger(string name);
         Burger(string n, int p);
 
-        Ingredient* getIngredients();
-        void addIngredient(Ingredient ingredient);
-        void removeIngredient(Ingredient ingredient);
+        Ingredient* get_ingredients();
+        void add_ingredient(Ingredient ingredient);
+        void remove_ingredient(Ingredient ingredient);
         
-        string getDisplay();
+        string get_display();
 
         ~Burger();
 };

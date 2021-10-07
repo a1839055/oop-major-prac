@@ -8,13 +8,13 @@ int main() {
     Burger burger = Burger();
     burger.setName("Cheeseburger");
     burger.setPrice(4.35);
-    cout << "Burger: " << burger.getDisplay() << endl;
+    cout << "Burger: " << burger.get_display() << endl;
 
     burger = Burger("Quarter Pounder");
     burger.setPrice(5.00);
-    cout << "Burger: " << burger.getDisplay() << endl;
+    cout << "Burger: " << burger.get_display() << endl;
 
     burger = Burger("Big Mac", 5.00);
     burger.setPrice(6.00);
-    cout << "Burger: " << burger.getDisplay() << endl;
+    cout << "Burger: " << burger.get_display() << endl;
 ;}
