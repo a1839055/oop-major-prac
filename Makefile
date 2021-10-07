@@ -1,5 +1,5 @@
 main:
-	g++ burger.cpp drink.cpp fries.cpp ingredient.cpp item.cpp sized_item.cpp main.cpp -o main
+	g++ burger.cpp drink.cpp fries.cpp ingredient.cpp item.cpp sized_item.cpp menu.cpp main.cpp -o main -lpthread -std=c++17
 test_burger:
 	g++ item.cpp ingredient.cpp burger.cpp tests/test_burger.cpp -o test_burger
 test_drink:
