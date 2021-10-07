@@ -21,3 +21,7 @@ void SizedItem::setPrices(float* p) {
 float SizedItem::getPrice() {
     return getPrices()[getSize()];
 }
+
+string SizedItem::getDisplay() {
+    return "Name: " + getName() + " Price: $" + to_string(getPrice());
+}

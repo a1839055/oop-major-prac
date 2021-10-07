@@ -16,6 +16,8 @@ class SizedItem : public Item {
         void setPrices(float* prices);
 
         float getPrice();
+        
+        string getDisplay();
 };
 
 #endif

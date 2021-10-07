@@ -11,8 +11,6 @@ using namespace std;
 class Drink: public SizedItem {
     public:
         Drink(string name, float prices[3]);
-
-        string getDisplay();
 };
 
 #endif

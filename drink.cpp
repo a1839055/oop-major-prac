@@ -10,7 +10,3 @@ Drink::Drink(string n, float p[3]) {
     prices_count = 3;
     size = 0;
 }
-
-string Drink::getDisplay() {
-    return "Name: " + getName() + " Price: $" + to_string(getPrice());
-}

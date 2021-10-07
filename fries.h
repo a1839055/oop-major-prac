@@ -6,8 +6,7 @@
 class Fries: public SizedItem {
     public:
         Fries(float prices[3]);
-
-        string getDisplay();
+        Fries(string name, float* prices, int prices_count);
 };
 
 #endif
