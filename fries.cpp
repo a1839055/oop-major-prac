@@ -2,6 +2,13 @@
 
 #include "fries.h"
 
+Fries::Fries() {
+    name = "";
+    prices = new float[3];
+    prices_count = 3;
+    size = 0;
+}
+
 Fries::Fries(float p[3]) {
     name = "Fries";
     prices = p;

@@ -17,6 +17,8 @@ class Item {
         void setPrice(float price);
 
         virtual string get_display();
+
+        bool operator==(const Item other) const;
 };
 
 #endif

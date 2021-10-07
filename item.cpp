@@ -23,3 +23,7 @@ void Item::setPrice(float p) {
 string Item::get_display() {
     return "Name: " + get_name() + " Price: " + to_string(get_price());
 }
+
+bool Item::operator==(const Item other) const {
+    return name == other.name;
+}

@@ -10,6 +10,7 @@ using namespace std;
 
 class Drink: public SizedItem {
     public:
+        Drink();
         Drink(string name, float prices[3]);
 };
 

@@ -9,6 +9,6 @@ int main() {
     Drink drink = Drink("Vanilla Coke", prices);
     cout << "Drink: " << drink.get_display() << endl;
 
-    drink.setSize(1);
+    drink.set_size(1);
     cout << "Drink: " << drink.get_display() << endl;
 ;}
