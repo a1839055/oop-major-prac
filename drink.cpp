@@ -17,3 +17,11 @@ Drink::Drink(string n, float p[3]) {
     prices_count = 3;
     size = 0;
 }
+
+Drink::~Drink() {
+    
+}
+
+string Drink::get_display() {
+    return "";
+}

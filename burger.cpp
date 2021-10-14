@@ -17,11 +17,15 @@ Burger::Burger(string n) {
     ingredients = new Ingredient[0];
 }
 
-Burger::Burger(string n, int p) {
+Burger::Burger(string n, float p) {
     name = n;
     price = p;
     ingredient_count = 0;
     ingredients = new Ingredient[0];
+}
+
+Burger::~Burger() {
+    
 }
 
 Ingredient* Burger::get_ingredients() {
@@ -48,9 +52,5 @@ void Burger::remove_ingredient(Ingredient ingredient) {
 }
 
 string Burger::get_display() {
-    return "Name: " + get_name()+ " Price: $" + to_string(get_price());
-}
-
-Burger::~Burger() {
-    
+    return get_name()+ " - $" + to_string(get_price());
 }

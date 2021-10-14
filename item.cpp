@@ -4,11 +4,19 @@
 
 using namespace std;
 
+Item::Item() {
+
+}
+
+Item::~Item() {
+
+}
+
 string Item::get_name() {
     return name;
 }
 
-void Item::setName(string n) {
+void Item::set_name(string n) {
     name = n;
 }
 
@@ -16,12 +24,12 @@ float Item::get_price() {
     return price;
 }
 
-void Item::setPrice(float p) {
+void Item::set_price(float p) {
     price = p;
 }
 
 string Item::get_display() {
-    return "Name: " + get_name() + " Price: " + to_string(get_price());
+    return get_name() + " - $" + to_string(get_price());
 }
 
 bool Item::operator==(const Item other) const {

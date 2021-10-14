@@ -10,11 +10,14 @@ class Item {
         string name;
         float price;
     public:
-        string get_name();
-        void setName(string name);
+        Item();
+        ~Item();
 
-        float get_price();
-        void setPrice(float price);
+        string get_name();
+        void set_name(string name);
+
+        virtual float get_price();
+        virtual void set_price(float price);
 
         virtual string get_display();
 

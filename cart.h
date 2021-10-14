@@ -15,17 +15,20 @@ class Cart {
         vector<Fries> fries;
     public:
         Cart();
+        
+        ~Cart();
 
-        Item* getItems();
+        // Item* get_items();
 
-        void addBurger(Burger burger);
-        void removeBurger(int id);
+        void add_burger(Burger burger);
 
-        void addDrink(Drink drink);
-        void removeDrink(Drink drink);
+        void add_drink(Drink drink);
 
-        void addFries(Fries fries);
-        void removeFries(Fries fries);
+        void add_fries(Fries fries);
+
+        void remove_item(int index);
+
+        string get_display();
 };
 
 #endif

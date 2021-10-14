@@ -18,7 +18,10 @@ Drink.o: SizedItem.o
 Fries.o: SizedItem.o
 	g++ -c fries.cpp
 
-main: Fries.o Burger.o Drink.o
+Cart.o:
+	g++ -c cart.cpp
+
+main: Fries.o Burger.o Drink.o Cart.o
 	g++ menu.cpp main.cpp -o main -lpthread -std=c++17
 
 tests: test_burger test_drink test_fries
@@ -29,3 +32,6 @@ test_drink: Drink.o
 	g++ tests/test_drink.cpp -o test_drink
 test_fries: Fries.o
 	g++ tests/test_fries.cpp -o test_fries
+
+# Working compile command:
+# g++ item.cpp sized_item.cpp fries.cpp ingredient.cpp burger.cpp drink.cpp cart.cpp menu.cpp main.cpp -o main -lpthread -std=c++17

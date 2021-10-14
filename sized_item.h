@@ -9,6 +9,9 @@ class SizedItem : public Item {
         float* prices;
         int prices_count;
     public:
+        SizedItem();
+        ~SizedItem();
+
         int set_size();
         void set_size(int size);
         

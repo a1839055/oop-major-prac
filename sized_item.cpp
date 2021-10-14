@@ -1,5 +1,13 @@
 #include "sized_item.h"
 
+SizedItem::SizedItem() {
+
+}
+
+SizedItem::~SizedItem() {
+
+}
+
 int SizedItem::set_size() {
     return size;
 }

@@ -6,15 +6,15 @@ using namespace std;
 
 int main() {
     Burger burger = Burger();
-    burger.setName("Cheeseburger");
-    burger.setPrice(4.35);
+    burger.set_name("Cheeseburger");
+    burger.set_price(4.35);
     cout << "Burger: " << burger.get_display() << endl;
 
     burger = Burger("Quarter Pounder");
-    burger.setPrice(5.00);
+    burger.set_price(5.00);
     cout << "Burger: " << burger.get_display() << endl;
 
     burger = Burger("Big Mac", 5.00);
-    burger.setPrice(6.00);
+    burger.set_price(6.00); 
     cout << "Burger: " << burger.get_display() << endl;
 ;}

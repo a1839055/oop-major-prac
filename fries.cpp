@@ -2,6 +2,8 @@
 
 #include "fries.h"
 
+using namespace std;
+
 Fries::Fries() {
     name = "";
     prices = new float[3];
@@ -21,4 +23,12 @@ Fries::Fries(string n, float* p, int pc) {
     prices = p;
     prices_count = 2;
     size = 0;
+}
+
+Fries::~Fries() {
+
+}
+
+string Fries::get_display() {
+    return "";
 }

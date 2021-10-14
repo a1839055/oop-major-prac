@@ -15,15 +15,15 @@ class Burger: public Item {
     public:
         Burger();
         Burger(string name);
-        Burger(string n, int p);
+        Burger(string n, float p);
+
+        ~Burger();
 
         Ingredient* get_ingredients();
         void add_ingredient(Ingredient ingredient);
         void remove_ingredient(Ingredient ingredient);
         
         string get_display();
-
-        ~Burger();
 };
 
 #endif
