@@ -16,11 +16,12 @@
 
 using namespace std;
 
-class Payment {
+class payment{
     private:
     
     public:
-        Payment();
+        payment();
+        payment(float pPrice, string pCustomerName, int orderNum, int receiptNum);
         float price;
         string customer_name;
         int order_id;
@@ -28,44 +29,48 @@ class Payment {
         bool is_payment_success;
         void send_payment_info();
         void send_order_to_kitchen();
-        virtual bool pay();
-        ~Payment(); //destructor
+    virtual bool pay(); //pure virtual function
+        ~payment(); //destructor
 };
 
-class Cash : public Payment{
+class cash : public payment{
     private:
         int cash_types[3];
     public:
-        Cash();
+        cash();
+        cash(float pBalance, payment pClassName);
         float balance;
         int cash_till();
         bool pay();
-        ~Cash();
+        ~cash();
 };
 
-class PayPal : public Payment {
+class paypal : public payment{
     private:
         string paypal_username;
         string paypal_password;
     public:
-        PayPal();
+        paypal();
+        paypal(float pPayPalBalance, payment className);
         string paypal_balance;
         bool connect_to_paypal_servers();
         bool pay();
-        ~PayPal();
+        ~paypal();
 };
 
-class CreditCard : public Payment{
+class credit_card : public payment{
     private:
         int cc_number;
         string cc_name;
         int ccv;
     public:
-        CreditCard();
+        credit_card();
+        credit_card(float pBankBalance, payment className);
+        payment placeholder;
         float bank_balance;
         bool connect_credit_card_system();
         bool pay();
-        ~CreditCard();
+        ~credit_card();
     
 };
 

@@ -16,79 +16,141 @@ using namespace std;
 
 // PAYMENT PARENT
 
-Payment::Payment(){
+payment::payment(){
     
 };
 
-void Payment::send_payment_info(){
+payment::payment(float pPrice, string pCustomerName, int orderNum, int receiptNum){
+    price = pPrice;
+    order_id = orderNum;
+    receipt_number = receiptNum;
+};
+
+void payment::send_payment_info(){
     
 };
 
-void Payment::send_order_to_kitchen(){
+void payment::send_order_to_kitchen(){
     
 };
+/*
+bool payment::pay(int method, payment payClassName){
+    switch (method){
+    case 0:
+        
+        payClassName.cash::pay();
+        break;
+    case 1:
+        payClassName.paypal::pay();
+        break;
+    case 2:
+        payClassName.credit_card::pay();
+        break;
+    }
+};*/
 
-bool Payment::pay(){
-    
+bool payment::pay(){
+    return false;
 };
 
-Payment::~Payment(){
+payment::~payment(){
     
 };
 
 
 // CASH
 
-Cash::Cash(){
+cash::cash(){
     
 };
 
-int Cash::cash_till(){
-    
+cash::cash(float pBalance, payment pClassName){
+    balance = pBalance;
+    //cashPlace = pClassName;
 };
 
-bool Cash::pay(){
+int cash::cash_till(){
     
+    return 0;
 };
 
-Cash::~Cash(){
+bool cash::pay(){
+  /*  if(balance > cashPlace.price){
+        balance = balance - cashPlace.price;
+        cout << "Payment successful." << endl;
+        cout << "Your new balance is $" << balance << endl;
+            return true;
+    }
+    else{
+        cout << "Payment unsuccessful." << endl;
+        cout << "Not enough funds." << endl;
+        return false;
+    }*/
+    return false;
+};
+
+cash::~cash(){
     
 };
 
 
 // PAYPAL
 
-PayPal::PayPal(){
+paypal::paypal(){
     
 };
 
-bool PayPal::connect_to_paypal_servers(){
+paypal::paypal(float pPayPalBalance, payment className){
     
 };
 
-bool PayPal::pay(){
-    
+
+bool paypal::connect_to_paypal_servers(){
+    return false;
 };
 
-PayPal::~PayPal(){
+bool paypal::pay(){
+    return false;
+};
+
+
+
+paypal::~paypal(){
     
 };
 
 
 // CREDIT CARD
 
-CreditCard::CreditCard(){
-    
+credit_card::credit_card(){
+    cout << "No balance obtained. Exiting program." << endl;
+    return;
 };
 
-bool CreditCard::pay(){
-    
+credit_card::credit_card(float pBankBalance, payment className){
+    bank_balance = pBankBalance;
+    placeholder = className;
 };
 
-bool CreditCard::connect_credit_card_system(){
-    
+
+bool credit_card::pay(){
+    if(bank_balance > placeholder.price){
+        bank_balance = bank_balance - placeholder.price;
+        cout << "Payment successful." << endl;
+        cout << "Your new balance is $" << bank_balance << endl;
+            return true;
+    }
+    else{
+        cout << "Payment unsuccessful." << endl;
+        cout << "Not enough funds." << endl;
+        return false;
+    }
 };
 
-CreditCard::~CreditCard(){
+bool credit_card::connect_credit_card_system(){
+    return false;
+};
+
+credit_card::~credit_card(){
     
 };
