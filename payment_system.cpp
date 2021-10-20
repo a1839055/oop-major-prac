@@ -80,7 +80,7 @@ void cash::cash_till(){
 };
 
 bool cash::pay(){
-    if(balance > placeholder.price){
+    if(balance >= placeholder.price){
         cash_till();
         cout << "Payment successful." << endl;
         cout << "Your new balance is $" << balance << endl;
@@ -129,7 +129,7 @@ bool paypal::pay(){
         return false;
     }
     
-    if(paypal_balance > placeholder.price){
+    if(paypal_balance >= placeholder.price){
         paypal_balance = paypal_balance - placeholder.price;
         cout << "Payment successful." << endl;
         cout << "Your new balance is $" << paypal_balance << endl;
@@ -163,7 +163,7 @@ credit_card::credit_card(float pBankBalance, payment className){
 
 
 bool credit_card::pay(){
-    if(bank_balance > placeholder.price){
+    if(bank_balance >= placeholder.price){
         bank_balance = bank_balance - placeholder.price;
         cout << "Payment successful." << endl;
         cout << "Your new balance is $" << bank_balance << endl;
