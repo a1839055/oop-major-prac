@@ -8,7 +8,8 @@ using namespace std;
 #define INGREDIENT_H
 
 class Ingredient: public Item {
-
+    public:
+        Ingredient(string name, float price);
 };
 
 #endif

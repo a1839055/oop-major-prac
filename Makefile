@@ -21,8 +21,8 @@ fries.o: fries.cpp fries.h sized_item.o
 cart.o: cart.cpp cart.h
 	g++ -c cart.cpp
 
-main: main.cpp menu.cpp fries.o burger.o drink.o cart.o burger_information.h drink_information.h fries_information.h
-	g++ menu.cpp main.cpp -o main fries.o burger.o drink.o ingredient.o sized_item.o item.o cart.o -lpthread -std=c++17
+main: main.cpp menu.cpp utils.cpp utils.h fries.o burger.o drink.o cart.o burger_information.h drink_information.h fries_information.h
+	g++ menu.cpp utils.cpp main.cpp -o main fries.o burger.o drink.o ingredient.o sized_item.o item.o cart.o -lpthread -std=c++17
 
 tests: test_burger test_drink test_fries
 

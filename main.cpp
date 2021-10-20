@@ -7,14 +7,19 @@
 #include "drink.h"
 #include "item.h"
 #include "cart.h"
+#include "ingredient.h"
 #include "burger_information.h"
 #include "drink_information.h"
 #include "fries_information.h"
+#include "ingredient_information.h"
 
 using namespace std;
 
+#define FIXED_FLOAT(x) std::fixed <<std::setprecision(2)<<(x)
+
 // extern map<string, float> getItemPricing();
 extern map<int, BurgerInformation> get_burgers_info();
+extern map<int, IngredientInformation> get_ingredients_info();
 extern map<int, DrinkInformation> get_drinks_info();
 extern map<int, FriesInformation> get_fries_info();
 extern string get_menu_display();
@@ -22,6 +27,7 @@ extern string get_menu_display();
 int main() {
     // Populate this from menu file
     map<int, BurgerInformation> burgers_info = get_burgers_info();
+    map<int, IngredientInformation> ingredients_info = get_ingredients_info();
     map<int, DrinkInformation> drinks_info = get_drinks_info();
     map<int, FriesInformation> fries_info = get_fries_info();
 
@@ -38,15 +44,6 @@ int main() {
     cout << endl;
 
     cout << "Pricing:" << endl << get_menu_display() << endl;
-    // cout << "\tBurger:" << endl;
-    // for (auto const& [name, information]: burgers_info) {
-    //     cout << "\t\t" << information.id << ". " << information.name << ": $" << information.price << endl;
-    // }
-
-    // cout << "\tDrinks:" <<endl;
-    // for (auto const& [name, information]: drinks_info) {
-    //     cout << "\t\t" << information.id << ". " << information.name << ": $" << information.prices[0] << ", $" << information.prices[1] << ", $" << information.prices[2] <<endl;
-    // }
 
     cout << endl;
 
@@ -78,15 +75,37 @@ int main() {
             int size;
             cin >> size;
 
-            Fries* fries = new Fries(fries_info[id].name, fries_info[id].prices, size);
+            Fries* fries = new Fries(fries_info[id].name, fries_info[id].prices, 3, size);
             cart.add_fries(fries);
         } else if (input == "remove" ) {
             int id;
             cin >> id;
 
             cart.remove_item(id);
+        } else if (input == "ingredient") {
+            int index;
+            cin >> index;
+
+            int ingredient_id;
+            cin >> ingredient_id;
+
+            Ingredient* ingredient = new Ingredient(ingredients_info[ingredient_id].name, ingredients_info[ingredient_id].price);
+            cart.add_burger_ingredient(index, ingredient);
         } else if (input == "menu") {
             cout << "Pricing:" << endl << get_menu_display() << endl;
+        } else if (input == "pay") {
+            string method;
+            cin >> method;
+
+            if (method == "paypal") {
+
+            } else if (method == "cc") {
+
+            } else if (method == "cash") {
+            
+            } else {
+                cout << "Unrecognized payment method";
+            }
         } else {
             cout << "Unknown command." << endl;
         }

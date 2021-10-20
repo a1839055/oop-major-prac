@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 #include "item.h"
 #include "ingredient.h"
@@ -10,7 +11,7 @@ using namespace std;
 
 class Burger: public Item {
     private:
-        Ingredient* ingredients;
+        vector<Ingredient*> ingredients;
         int ingredient_count;
     public:
         Burger();
@@ -19,9 +20,11 @@ class Burger: public Item {
 
         ~Burger();
 
-        Ingredient* get_ingredients();
-        void add_ingredient(Ingredient ingredient);
-        void remove_ingredient(Ingredient ingredient);
+        vector<Ingredient*> get_ingredients();
+        void add_ingredient(Ingredient* ingredient);
+        void remove_ingredient(int index);
+
+        float get_price();
         
         string get_display();
 };

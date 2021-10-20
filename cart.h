@@ -15,7 +15,7 @@ class Cart {
         vector<Burger*> burgers;
         vector<Drink*> drinks;
         vector<Fries*> fries;
-        
+
         template <typename T>
         int get_item_index(Item* item_ptr, vector<T*>& items) {
             auto it = find(items.begin(), items.end(), item_ptr);
@@ -24,21 +24,21 @@ class Cart {
             } else {
                 return -1;
             }
-        }
+    }
     public:
         Cart();
         
         ~Cart();
 
-        // Item* get_items();
-
         void add_burger(Burger* burger);
-
         void add_drink(Drink* drink);
-
         void add_fries(Fries* fries);
 
+        void add_burger_ingredient(int index, Ingredient* ingredient);
+
         void remove_item(int index);
+
+        float get_total();
 
         string get_display();
 };

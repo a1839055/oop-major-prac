@@ -1,11 +1,14 @@
 #include "sized_item.h"
 
+
+extern string to_string_precision(const float value, const int precision = 2);
+
 SizedItem::SizedItem() {
 
 }
 
 SizedItem::~SizedItem() {
-
+    delete[] prices;
 }
 
 int SizedItem::set_size() {
@@ -42,5 +45,5 @@ float SizedItem::get_price() {
 }
 
 string SizedItem::get_display() {
-    return get_name() + " - $" + to_string(get_price()) + " (" + get_size_display() + ")";
+    return get_name() + " - $" + to_string_precision(get_price()) + " (" + get_size_display() + ")";
 }

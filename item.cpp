@@ -1,8 +1,12 @@
 #include <string>
+#include <iostream>
 
 #include "item.h"
 
+
 using namespace std;
+
+extern string to_string_precision(const float value, const int precision = 2);
 
 Item::Item() {
 
@@ -29,7 +33,7 @@ void Item::set_price(float p) {
 }
 
 string Item::get_display() {
-    return get_name() + " - $" + to_string(get_price());
+    return get_name() + " - $" + to_string_precision(get_price());
 }
 
 bool Item::operator==(const Item other) const {

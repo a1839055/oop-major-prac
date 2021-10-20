@@ -9,15 +9,20 @@
 #include "drink.h"
 #include "fries.h"
 #include "item.h"
+#include "ingredient.h"
+#include "utils.h"
 
 using namespace std;
+
+extern string to_string_precision(const float value, const int precision = 2);
 
 Cart::Cart() {
     
 }
 
 Cart::~Cart() {
-
+    // Only need to deallocate items as it contains all the pointers in the other arrays combined
+    deallocate_pointer_vector<Item*>(items);
 }
 
 void Cart::add_burger(Burger* burger) {
@@ -33,6 +38,13 @@ void Cart::add_drink(Drink* drink) {
 void Cart::add_fries(Fries* f) {
     items.push_back(f);
     fries.push_back(f);
+}
+
+void Cart::add_burger_ingredient(int index, Ingredient* ingredient) {
+    index--;
+    Burger* burger = burgers.at(get_item_index(items.at(index), burgers));
+    burger -> add_ingredient(ingredient);
+    cout << burger -> get_price() << endl;
 }
 
 void Cart::remove_item(int index) {
@@ -55,8 +67,18 @@ void Cart::remove_item(int index) {
     }
 }
 
+float Cart::get_total() {
+    float sum = 0;
+    for (int i = 0; i < items.size(); i++) {
+        sum += items[i]->get_price();
+    }
+    return sum;
+}
+
 string Cart::get_display() {
     string display = "";
+
+    display += "Total: " + to_string_precision(get_total()) + "\n";
 
     for (int i = 0; i < items.size(); i++) {
         Item* item = items.at(i);

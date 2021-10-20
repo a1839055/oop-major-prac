@@ -4,53 +4,55 @@
 #include "burger.h"
 #include "ingredient.h"
 
+
 using namespace std;
+
+extern string to_string_precision(const float value, const int precision = 2);
 
 Burger::Burger() {
     ingredient_count = 0;
-    ingredients = new Ingredient[0];
 }
 
 Burger::Burger(string n) {
     name = n;
     ingredient_count = 0;
-    ingredients = new Ingredient[0];
 }
 
 Burger::Burger(string n, float p) {
     name = n;
     price = p;
     ingredient_count = 0;
-    ingredients = new Ingredient[0];
 }
 
 Burger::~Burger() {
     
 }
 
-Ingredient* Burger::get_ingredients() {
+vector<Ingredient*> Burger::get_ingredients() {
     return ingredients;
 }
 
-void Burger::add_ingredient(Ingredient ingredient) {
-    Ingredient* temp = new Ingredient[ingredient_count++];
-    for (int i = 0; i < ingredient_count-1; i++) {
-        temp[i] = ingredients[i];
-    }
-    temp[ingredient_count-1] = ingredient;
+void Burger::add_ingredient(Ingredient* ingredient) {
+    ingredients.push_back(ingredient);
 };
 
-void Burger::remove_ingredient(Ingredient ingredient) {
-    Ingredient* temp = new Ingredient[ingredient_count--];
-    int count = 0;
-    for (int i = 0; i < ingredient_count; i++) {
-        // Check if the ingredient matches and an ingredient by that name has not already been removed.
-        if (ingredients[i].get_name() != ingredient.get_name() || count+1 != i) {
-            ingredients[count++] = ingredients[i];
-        }
+void Burger::remove_ingredient(int index) {
+    ingredients.erase(ingredients.begin() + index);
+}
+
+float Burger::get_price() {
+    float p = price;
+    for (int i = 0; i < ingredients.size(); i++) {
+        p += ingredients.at(i) -> get_price();
     }
+    return p;
 }
 
 string Burger::get_display() {
-    return get_name()+ " - $" + to_string(get_price());
+    string display = get_name()+ " - $" + to_string_precision(get_price()) + " - Ingredients: " ;
+    for (int i = 0 ; i < ingredients.size(); i++) {
+        display += ingredients.at(i) -> get_display();
+        if (i != ingredients.size() - 1) display += ", "; // Not the last one
+    }
+    return display;
 }

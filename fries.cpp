@@ -25,6 +25,13 @@ Fries::Fries(string n, float* p, int pc) {
     size = 0;
 }
 
+Fries::Fries(string n, float* p, int pc, int s) {
+    name = n;
+    prices = p;
+    prices_count = 2;
+    size = s;
+}
+
 Fries::~Fries() {
-    int x = 0;
+    
 }
