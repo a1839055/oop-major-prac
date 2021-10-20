@@ -34,21 +34,7 @@ void payment::send_payment_info(){
 void payment::send_order_to_kitchen(){
     
 };
-/*
-bool payment::pay(int method, payment payClassName){
-    switch (method){
-    case 0:
-        
-        payClassName.cash::pay();
-        break;
-    case 1:
-        payClassName.paypal::pay();
-        break;
-    case 2:
-        payClassName.credit_card::pay();
-        break;
-    }
-};*/
+
 
 bool payment::pay(){
     return false;
