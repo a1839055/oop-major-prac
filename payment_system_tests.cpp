@@ -36,7 +36,7 @@ int main(){
     chippy.pay();
     cout << endl;
     
-    cout << endl << "Test 4 (paypal) (John, $4 order, $50 PayPayl balance):" << endl;
+    cout << endl << "Test 4 (paypal) (John, $4 order, $50 PayPal balance):" << endl;
     payment order3(4, "John", 75, 53);
     paypal John(50, order3);
     cout << "Customer: " << order3.customer_name << endl;
@@ -50,6 +50,33 @@ int main(){
     Karen.pay();
     cout << endl;
     
+    cout << endl << "Test 6 (cash) (Muzza, $21 order, $20 cash balance):" << endl;
+    payment order5(21, "Muzza", 77, 80);
+    cash Muzza(20, order5);
+    cout << "Customer: " << order5.customer_name << endl;
+    Muzza.pay();
+    cout << endl;
+    
+    cout << endl << "Test 7 (paypal) (Jackery, $7 order, $0 PayPal balance):" << endl;
+    payment order6(7, "Jackery", 78, 81);
+    cash Jackery(0, order6);
+    cout << "Customer: " << order6.customer_name << endl;
+    Jackery.pay();
+    cout << endl;
+    
+    cout << endl << "Test 8 (cash) (Mirendara, $1 order, $0 credit card balance):" << endl;
+    payment order7(1, "Mirendara", 78, 81);
+    cash Mirendara(0, order7);
+    cout << "Customer: " << order7.customer_name << endl;
+    Mirendara.pay();
+    cout << endl;
+    
+    cout << endl << "Test 9 (paypal) (Ntera, $10 order, $10 PayPal balance):" << endl;
+    payment order8(10, "Ntera", 75, 53);
+    paypal Ntera(10, order8);
+    cout << "Customer: " << order8.customer_name << endl;
+    Ntera.pay();
+    cout << endl;
     
     
     

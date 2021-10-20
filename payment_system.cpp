@@ -121,7 +121,7 @@ bool paypal::pay(){
     cin >> paypal_username;
     cout << "Enter PayPal password (should be same as username): " << endl;
     cin >> paypal_password;
-    if(paypal_username == paypal_password){
+    if(paypal_username == paypal_password && paypal_username == placeholder.customer_name){
         cout << "Log-in successful" << endl;
     }
     else{
