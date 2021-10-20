@@ -18,10 +18,13 @@ Drink::Drink(string n, float p[3]) {
     size = 0;
 }
 
-Drink::~Drink() {
-    
+Drink::Drink(string n, float p[3], int s) {
+    name = n;
+    prices = p;
+    prices_count = 3;
+    size = s;
 }
 
-string Drink::get_display() {
-    return "";
+Drink::~Drink() {
+    
 }

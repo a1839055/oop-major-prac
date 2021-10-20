@@ -17,4 +17,4 @@ int main() {
     burger = Burger("Big Mac", 5.00);
     burger.set_price(6.00); 
     cout << "Burger: " << burger.get_display() << endl;
-;}
+}

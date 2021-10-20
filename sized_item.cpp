@@ -18,6 +18,17 @@ void SizedItem::set_size(int s) {
     }
 }
 
+string SizedItem::get_size_display() {
+    switch (size) {
+        case 0:
+            return "small";
+        case 1:
+            return "medium";
+        default: // 2 or more is large
+            return "large";
+    }
+}
+
 float* SizedItem::get_prices() {
     return prices;
 }
@@ -31,5 +42,5 @@ float SizedItem::get_price() {
 }
 
 string SizedItem::get_display() {
-    return "Name: " + get_name() + " Price: $" + to_string(get_price());
+    return get_name() + " - $" + to_string(get_price()) + " (" + get_size_display() + ")";
 }

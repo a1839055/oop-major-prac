@@ -26,9 +26,5 @@ Fries::Fries(string n, float* p, int pc) {
 }
 
 Fries::~Fries() {
-
-}
-
-string Fries::get_display() {
-    return "";
+    int x = 0;
 }

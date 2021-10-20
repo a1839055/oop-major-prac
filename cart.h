@@ -10,9 +10,21 @@
 
 class Cart {
     private:
-        vector<Burger> burgers;
-        vector<Drink> drinks;
-        vector<Fries> fries;
+        vector<Item*> items;
+
+        vector<Burger*> burgers;
+        vector<Drink*> drinks;
+        vector<Fries*> fries;
+        
+        template <typename T>
+        int get_item_index(Item* item_ptr, vector<T*>& items) {
+            auto it = find(items.begin(), items.end(), item_ptr);
+            if (it != items.end()) {
+                return distance(items.begin(), it);
+            } else {
+                return -1;
+            }
+        }
     public:
         Cart();
         
@@ -20,11 +32,11 @@ class Cart {
 
         // Item* get_items();
 
-        void add_burger(Burger burger);
+        void add_burger(Burger* burger);
 
-        void add_drink(Drink drink);
+        void add_drink(Drink* drink);
 
-        void add_fries(Fries fries);
+        void add_fries(Fries* fries);
 
         void remove_item(int index);
 

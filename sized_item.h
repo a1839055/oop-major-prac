@@ -14,6 +14,7 @@ class SizedItem : public Item {
 
         int set_size();
         void set_size(int size);
+        string get_size_display();
         
         float* get_prices();
         void set_prices(float* prices);

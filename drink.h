@@ -12,10 +12,9 @@ class Drink: public SizedItem {
     public:
         Drink();
         Drink(string name, float prices[3]);
+        Drink(string n, float p[3], int s);
 
         ~Drink();
-
-        string get_display();
 };
 
 #endif

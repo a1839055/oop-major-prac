@@ -12,8 +12,6 @@ class Fries: public SizedItem {
         Fries(string name, float* prices, int prices_count);
 
         ~Fries();
-
-        string get_display();
 };
 
 #endif

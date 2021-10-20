@@ -1,0 +1,20 @@
+Welcome to McDonald's!
+
+Pricing:
+	Burger:
+		1. Cheeseburger: $3.5
+		2. Quarter Pounder: $5
+Enter command: You are ordering a burger with id 1
+Current Cart: Burgers:
+1.Cheeseburger - $3.500000
+Drinks:
+Fries:
+
+Enter command: You are ordering a burger with id 2
+Current Cart: Burgers:
+1.Cheeseburger - $3.500000
+2.Quarter Pounder - $5.000000
+Drinks:
+Fries:
+
+Enter command: 
