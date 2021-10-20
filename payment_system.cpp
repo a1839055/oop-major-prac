@@ -20,11 +20,12 @@ payment::payment(){
     
 };
 
-payment::payment(float pPrice, string pCustomerName, int orderNum, int receiptNum){
+payment::payment(float pPrice, string pCustomerName, int orderNum, int receiptNum, string pOrder_name){
     price = pPrice;
     order_id = orderNum;
     receipt_number = receiptNum;
     customer_name = pCustomerName;
+    order_name = pOrder_name;
 };
 
 void payment::send_payment_info(){
@@ -34,6 +35,10 @@ void payment::send_payment_info(){
 void payment::send_order_to_kitchen(){
     
 };
+
+string payment::get_name(){
+    return order_name;
+}
 
 
 bool payment::pay(){

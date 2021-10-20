@@ -21,15 +21,17 @@ class payment{
     
     public:
         payment();
-        payment(float pPrice, string pCustomerName, int orderNum, int receiptNum);
+        payment(float pPrice, string pCustomerName, int orderNum, int receiptNum, string order_name);
         float price;
         string customer_name;
+        string order_name;
         int order_id;
         int receipt_number;
         bool is_payment_success;
         void send_payment_info();
         void send_order_to_kitchen();
         virtual bool pay(); //pure virtual function
+        virtual string get_name();
         ~payment(); //destructor
 };
 
