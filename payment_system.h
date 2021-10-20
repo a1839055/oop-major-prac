@@ -29,7 +29,7 @@ class payment{
         bool is_payment_success;
         void send_payment_info();
         void send_order_to_kitchen();
-    virtual bool pay(); //pure virtual function
+        virtual bool pay(); //pure virtual function
         ~payment(); //destructor
 };
 
@@ -39,8 +39,10 @@ class cash : public payment{
     public:
         cash();
         cash(float pBalance, payment pClassName);
+        float cash_till_balance;
         float balance;
-        int cash_till();
+        payment placeholder;
+        void cash_till();
         bool pay();
         ~cash();
 };
@@ -52,7 +54,8 @@ class paypal : public payment{
     public:
         paypal();
         paypal(float pPayPalBalance, payment className);
-        string paypal_balance;
+        float paypal_balance;
+        payment placeholder;
         bool connect_to_paypal_servers();
         bool pay();
         ~paypal();

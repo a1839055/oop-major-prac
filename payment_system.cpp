@@ -24,6 +24,7 @@ payment::payment(float pPrice, string pCustomerName, int orderNum, int receiptNu
     price = pPrice;
     order_id = orderNum;
     receipt_number = receiptNum;
+    customer_name = pCustomerName;
 };
 
 void payment::send_payment_info(){
@@ -61,22 +62,26 @@ payment::~payment(){
 // CASH
 
 cash::cash(){
-    
+    cash_till_balance = 50;
 };
 
 cash::cash(float pBalance, payment pClassName){
     balance = pBalance;
-    //cashPlace = pClassName;
+    placeholder = pClassName;
+    cash_till_balance = 50;
+    cout << "Cash till balance: " << cash_till_balance << endl;
 };
 
-int cash::cash_till(){
-    
-    return 0;
+void cash::cash_till(){
+    balance = balance - placeholder.price;
+    cash_till_balance = cash_till_balance + placeholder.price;
+    cout << "Updated cash till balance: " << cash_till_balance << endl;
+    return;
 };
 
 bool cash::pay(){
-  /*  if(balance > cashPlace.price){
-        balance = balance - cashPlace.price;
+    if(balance > placeholder.price){
+        cash_till();
         cout << "Payment successful." << endl;
         cout << "Your new balance is $" << balance << endl;
             return true;
@@ -85,8 +90,8 @@ bool cash::pay(){
         cout << "Payment unsuccessful." << endl;
         cout << "Not enough funds." << endl;
         return false;
-    }*/
-    return false;
+    }
+
 };
 
 cash::~cash(){
@@ -101,7 +106,8 @@ paypal::paypal(){
 };
 
 paypal::paypal(float pPayPalBalance, payment className){
-    
+    paypal_balance = pPayPalBalance;
+    placeholder = className;
 };
 
 
@@ -110,7 +116,30 @@ bool paypal::connect_to_paypal_servers(){
 };
 
 bool paypal::pay(){
-    return false;
+    
+    cout << "Enter PayPal username: " << endl;
+    cin >> paypal_username;
+    cout << "Enter PayPal password (should be same as username): " << endl;
+    cin >> paypal_password;
+    if(paypal_username == paypal_password){
+        cout << "Log-in successful" << endl;
+    }
+    else{
+        cout << "Log-in un-successful. Exiting" << endl;
+        return false;
+    }
+    
+    if(paypal_balance > placeholder.price){
+        paypal_balance = paypal_balance - placeholder.price;
+        cout << "Payment successful." << endl;
+        cout << "Your new balance is $" << paypal_balance << endl;
+            return true;
+    }
+    else{
+        cout << "Payment unsuccessful." << endl;
+        cout << "Not enough funds." << endl;
+        return false;
+    }
 };
 
 
