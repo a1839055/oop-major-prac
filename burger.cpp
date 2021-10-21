@@ -41,6 +41,7 @@ void Burger::remove_ingredient(int index) {
 }
 
 float Burger::get_price() {
+    // Return the price given by the burger base price and the sum of the ingredient prices
     float p = price;
     for (int i = 0; i < ingredients.size(); i++) {
         p += ingredients.at(i) -> get_price();
@@ -48,6 +49,7 @@ float Burger::get_price() {
     return p;
 }
 
+// Display the burger in a human readable format
 string Burger::get_display() {
     string display = get_name()+ " - $" + to_string_precision(get_price()) + " - Ingredients: " ;
     for (int i = 0 ; i < ingredients.size(); i++) {

@@ -12,10 +12,9 @@
 #include "drink_information.h"
 #include "fries_information.h"
 #include "ingredient_information.h"
+#include "payment_system.h"
 
 using namespace std;
-
-#define FIXED_FLOAT(x) std::fixed <<std::setprecision(2)<<(x)
 
 // extern map<string, float> getItemPricing();
 extern map<int, BurgerInformation> get_burgers_info();
@@ -31,8 +30,10 @@ int main() {
     map<int, DrinkInformation> drinks_info = get_drinks_info();
     map<int, FriesInformation> fries_info = get_fries_info();
 
+    // Create empty cart
     Cart cart = Cart();
 
+    // Print out all the instructions
     cout << "Welcome to McDonald's!" << endl << endl;
 
     cout << "Commands: " << endl;
@@ -45,32 +46,52 @@ int main() {
 
     cout << endl;
 
+    cout << "Note: size is given as a number (0 = small, 1 = medium, 2 = large)." << endl;
+
+    cout << endl;
+
+    // Output menu pricing which was loaded from CSV
     cout << "Pricing:" << endl << get_menu_display() << endl;
 
     cout << endl;
 
+    // Read in the first part of the command (the command name)
     string input;
     cout << "Enter command: ";
     while (cin >> input && input != "quit") {
+        bool show_cart = true;
+        // Check what command has been called
         if (input == "quit") {
-            break;
+            string confirm;
+            cout << "Are you sure you wish to quit? (y/n)";
+            cin >> confirm;
+            if (confirm[0] == 'y') {
+                break;
+            } else {
+                show_cart = false;
+            }
         }
         if (input == "burger") {
+            // Read in the id
             int id;
             cin >> id;
 
+            // Create burger and add it to the cart
             Burger* burger = new Burger(burgers_info[id].name, burgers_info[id].price);
             cart.add_burger(burger);
         } else if (input == "drink") {
+            // Read in id and size 
             int id;
             cin >> id;
 
             int size;
             cin >> size;
 
+            // Creat drink and add it to the cart 
             Drink* drink = new Drink(drinks_info[id].name, drinks_info[id].prices, size);
             cart.add_drink(drink);
         } else if (input == "fries") {
+            // Read in id and size of the fries
             int id;
             cin >> id;
 
@@ -80,39 +101,65 @@ int main() {
             Fries* fries = new Fries(fries_info[id].name, fries_info[id].prices, 3, size);
             cart.add_fries(fries);
         } else if (input == "remove" ) {
-            int id;
-            cin >> id;
+            // Read in the index in the cart of the item to remove
+            int index;
+            cin >> index;
 
-            cart.remove_item(id);
+            // Remove the item at the given index
+            cart.remove_item(index);
         } else if (input == "ingredient") {
+            // Read in the index of the burger and the id of the ingredient to be added
             int index;
             cin >> index;
 
             int ingredient_id;
             cin >> ingredient_id;
 
+            // Create and add the ingredient to the burger already in the cart
             Ingredient* ingredient = new Ingredient(ingredients_info[ingredient_id].name, ingredients_info[ingredient_id].price);
             cart.add_burger_ingredient(index, ingredient);
         } else if (input == "menu") {
             cout << "Pricing:" << endl << get_menu_display() << endl;
+            show_cart = false;
         } else if (input == "pay") {
+            show_cart = false;
+
             string method;
             cin >> method;
 
-            if (method == "paypal") {
+            // Create generic payment object
+            Payment* payment;
+            bool success = true;
 
+            if (method == "paypal") {
+                // Instantiate paypal object and assign to payment
+                Paypal* paypal = new Paypal(cart.get_total(), "Bob", 1234, 1234, "test");
+                payment = paypal;
             } else if (method == "cc") {
 
             } else if (method == "cash") {
             
             } else {
                 cout << "Unrecognized payment method.";
+                success = false;
+            }
+
+            // Only proceed if a payment method was succesfully selected
+            if (success) {
+                // Use virtual payment method (uses implementation from child class)
+                success = payment->pay();
+                if (success) {
+                    cout << "Thank you for choosing Maccas!" << endl;
+                    break;
+                }
             }
         } else {
             cout << "Unknown command." << endl;
         }
 
-        cout << endl << "Current Cart: " << endl << cart.get_display() << endl << endl;
+        if (show_cart) {
+            cout << endl << "Current Cart: " << endl << cart.get_display() << endl << endl;
+        }
 
         cout << "Enter command: ";
     }

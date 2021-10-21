@@ -25,21 +25,25 @@ Cart::~Cart() {
     deallocate_pointer_vector<Item*>(items);
 }
 
+// Add a burger to the cart
 void Cart::add_burger(Burger* burger) {
     items.push_back(burger);
     burgers.push_back(burger);   
 }
 
+// Add a drink to the cart
 void Cart::add_drink(Drink* drink) {
     items.push_back(drink);
     drinks.push_back(drink);
 }
 
+// Add fries to the cart
 void Cart::add_fries(Fries* f) {
     items.push_back(f);
     fries.push_back(f);
 }
 
+// Find the burger with the given index in the cart and then add the ingredient to it
 void Cart::add_burger_ingredient(int index, Ingredient* ingredient) {
     index--;
     Burger* burger = burgers.at(get_item_index(items.at(index), burgers));
@@ -47,12 +51,15 @@ void Cart::add_burger_ingredient(int index, Ingredient* ingredient) {
     cout << burger -> get_price() << endl;
 }
 
+// Remove the item with the given index from the cart
 void Cart::remove_item(int index) {
     index--;
 
+    // Remove from items array
     Item* item = items.at(index);
     items.erase(items.begin()+index);
 
+    // Find which of the specific vectors it is in and remove it
     int burger_index = get_item_index(item, burgers);
     if (burger_index > 0) {
         burgers.erase(burgers.begin()+burger_index);
@@ -68,6 +75,7 @@ void Cart::remove_item(int index) {
 }
 
 float Cart::get_total() {
+    // Sum the price from all items
     float sum = 0;
     for (int i = 0; i < items.size(); i++) {
         sum += items[i]->get_price();
@@ -75,6 +83,7 @@ float Cart::get_total() {
     return sum;
 }
 
+// Return a string that displays cart information in a human readable format
 string Cart::get_display() {
     string display = "";
 

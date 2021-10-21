@@ -21,10 +21,10 @@ fries.o: fries.cpp fries.h sized_item.o
 cart.o: cart.cpp cart.h
 	g++ -c cart.cpp
 
-main: main.cpp menu.cpp utils.cpp utils.h fries.o burger.o drink.o cart.o burger_information.h drink_information.h fries_information.h
-	g++ menu.cpp utils.cpp main.cpp -o main fries.o burger.o drink.o ingredient.o sized_item.o item.o cart.o -lpthread -std=c++17
+main: main.cpp menu.cpp utils.cpp payment_system.cpp payment_system.h utils.h fries.o burger.o drink.o cart.o burger_information.h drink_information.h fries_information.h
+	g++ menu.cpp utils.cpp main.cpp payment_system.cpp -o main fries.o burger.o drink.o ingredient.o sized_item.o item.o cart.o -lpthread -std=c++17
 
-tests: test_burger test_drink test_fries test_item test_ingredient
+tests: test_burger test_drink test_fries test_item test_ingredient test_sized_item
 
 test_burger: tests/test_burger.cpp utils.cpp burger.o
 	g++ tests/test_burger.cpp utils.cpp -o test_burger burger.o item.o ingredient.o
@@ -43,6 +43,3 @@ test_sized_item: tests/test_sized_item.cpp item.o utils.cpp sized_item.o
 
 clean:
 	rm -f main test_burger test_drink test_fries *.o
-
-# Working compile command:
-# g++ item.cpp sized_item.cpp fries.cpp ingredient.cpp burger.cpp drink.cpp cart.cpp menu.cpp main.cpp -o main -lpthread -std=c++17
