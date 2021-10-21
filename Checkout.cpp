@@ -16,7 +16,7 @@ void checkout::checkout_options(int selection) {
 
     button = selection;
 
-    if(button == 1) {
+    if(button == 1) { // if statement on which option selected
         selected_option = "Dine-in selected";
     } else if(button == 2) {
         selected_option = "Takeaway selected";
@@ -28,7 +28,7 @@ string checkout::get_option() {
 }
 
 int checkout::costs() {
-    return 0;
+    return 0; // for price to be integrated with other components
 }
 
 checkout::~checkout() {
@@ -42,7 +42,7 @@ dinein::dinein() {
 }
 
 void dinein::set_table_number(int table) {
-    number = table;
+    number = table; // initialise
 }
 
 int dinein::get_table_number() {
@@ -63,7 +63,7 @@ takeout::takeout() {
 void takeout::set_packageType(int Type) {
     package = Type;
 
-    if(package == 1) {
+    if(package == 1) { // if statement on which package type to be selected
         optionSelected = "Regular";
     } else if(package == 2) {
         optionSelected = "Premium";
