@@ -11,32 +11,35 @@ using namespace std;
 class checkout {
     public:
         checkout();
-        string checkout_options();
-        string order_details();
-        int price();
-        void set_option();
-        int get_option();
+        void checkout_options(int selection);
+        string get_option();
+        int costs();
         ~checkout();
+    private:
+        string options;
+        string selected_option;
+        int button;
 };
 
 class dinein : public checkout {
     public:
         dinein();
-        string name();
-        int table_number();
-        void set_table_number();
+        void set_table_number(int table);
         int get_table_number();
         ~dinein();
+    private:
+        int number;
 };
 
 class takeout : public checkout {
     public:
         takeout();
-        string name();
-        string package_type();
-        void set_packageType();
+        void set_packageType(int Type);
         string get_packageType();
         ~takeout();
+    private:
+        int package;
+        string optionSelected;
 };
 
 #endif
