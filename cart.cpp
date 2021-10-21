@@ -46,9 +46,13 @@ void Cart::add_fries(Fries* f) {
 // Find the burger with the given index in the cart and then add the ingredient to it
 void Cart::add_burger_ingredient(int index, Ingredient* ingredient) {
     index--;
-    Burger* burger = burgers.at(get_item_index(items.at(index), burgers));
-    burger -> add_ingredient(ingredient);
-    cout << burger -> get_price() << endl;
+    try {
+        Burger* burger = burgers.at(get_item_index(items.at(index), burgers));
+        burger -> add_ingredient(ingredient);
+        cout << burger -> get_price() << endl;
+    } catch (const exception& e) {
+        
+    }
 }
 
 // Remove the item with the given index from the cart

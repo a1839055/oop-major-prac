@@ -23,7 +23,6 @@ class Payment{
         Payment(float p_price, string p_customer_name, int order_num, int receipt_num, string order_name);
         ~Payment(); //destructor
         
-
         virtual bool pay() = 0; //pure virtual function
         virtual string get_name();
 };
@@ -38,38 +37,35 @@ class Paypal : public Payment{
     public:
         Paypal();
         Paypal(float p_price, string p_customer_name, int order_num, int receipt_num, string order_name);
-        // Payment placeholder;
         bool connect_to_paypal_servers();
         bool pay();
         ~Paypal();
 };
 
-// class Cash : public Payment{
-//     public:
-//         Cash();
-//         Cash(float p_balance, Payment p_class_name);
-//         float cash_till_balance;
-//         float balance;
-//         // Payment placeholder;
-//         void cash_till();
-//         bool pay();
-//         ~Cash();
-// };
+ class Cash : public Payment{
+     public:
+         Cash();
+         Cash(float p_price, string p_customer_name, int order_num, int receipt_num, string order_name);
+         float cash_till_balance;
+         float balance;
+         void cash_till();
+         bool pay();
+         ~Cash();
+ };
 
-// class CreditCard : public Payment{
-//     private:
-//         int cc_number;
-//         string cc_name;
-//         int ccv;
-//     public:
-//         CreditCard();
-//         CreditCard(float p_bank_balance, Payment class_name);
-//         // Payment placeholder;
-//         float bank_balance;
-//         bool connect_CreditCard_system();
-//         bool pay();
-//         ~CreditCard();
+ class CreditCard : public Payment{
+     private:
+         int cc_number;
+         string cc_name;
+         int ccv;
+     public:
+         CreditCard();
+         CreditCard(float p_price, string p_customer_name, int order_num, int receipt_num, string order_name);
+         float bank_balance;
+         bool connect_CreditCard_system();
+         bool pay();
+         ~CreditCard();
     
-// };
+ };
 
 #endif /* Payment_system_hpp */

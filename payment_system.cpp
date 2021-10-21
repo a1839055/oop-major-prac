@@ -43,13 +43,6 @@ Payment::~Payment(){
      cash_till_balance = 50;
  };
 
-// Cash::Cash(float p_balance, Payment p_class_name){
-//     balance = p_balance;
-//     placeholder = p_class_name;
-//     cash_till_balance = 50;
-//     cout << "Cash till balance: " << cash_till_balance << endl;
-// };
-
 Cash::Cash(float p_price, string p_customer_name, int order_num, int receipt_num, string p_order_name){
     price = p_price;
     order_id = order_num;
@@ -61,25 +54,15 @@ Cash::Cash(float p_price, string p_customer_name, int order_num, int receipt_num
     cout << "Cash till balance: " << cash_till_balance << endl;
 };
 
-
-//Paypal::Paypal(float p_price, string p_customer_name, int order_num, int receipt_num, string p_order_name){
-//    price = p_price;
-//    order_id = order_num;
-//    receipt_number = receipt_num;
-//    customer_name = p_customer_name;
-//    order_name = p_order_name;
-//    paypal_balance = 100;
-//}
-
  void Cash::cash_till(){
-     balance = balance - placeholder.price;
-     cash_till_balance = cash_till_balance + placeholder.price;
+     balance = balance - price;
+     cash_till_balance = cash_till_balance + price;
      cout << "Updated Cash till balance: " << cash_till_balance << endl;
      return;
  };
 
  bool Cash::pay(){
-     if(balance >= placeholder.price){
+     if(balance >= price) {
          cash_till();
          cout << "Payment successful." << endl;
          cout << "Your new balance is $" << balance << endl;
@@ -171,19 +154,9 @@ CreditCard::CreditCard(float p_price, string p_customer_name, int order_num, int
     bank_balance = 100;
 }
 
-//Paypal::Paypal(float p_price, string p_customer_name, int order_num, int receipt_num, string p_order_name){
-//    price = p_price;
-//    order_id = order_num;
-//    receipt_number = receipt_num;
-//    customer_name = p_customer_name;
-//    order_name = p_order_name;
-//    paypal_balance = 100;
-//}
-
-
  bool CreditCard::pay(){
-     if(bank_balance >= placeholder.price){
-         bank_balance = bank_balance - placeholder.price;
+     if(bank_balance >= price){
+         bank_balance = bank_balance - price;
          cout << "Payment successful." << endl;
          cout << "Your new balance is $" << bank_balance << endl;
              return true;
