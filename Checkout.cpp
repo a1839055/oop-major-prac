@@ -8,27 +8,27 @@ using namespace std;
 // CHECKOUT
 
 checkout::checkout() {
-
+    selected_option = " ";
+    button = 0;
 }
 
-string checkout::checkout_options() {
+void checkout::checkout_options(int selection) {
 
+    button = selection;
+
+    if(button == 1) {
+        selected_option = "Dine-in selected";
+    } else if(button == 2) {
+        selected_option = "Takeaway selected";
+    }
 }
 
-string checkout::order_details() {
-
+string checkout::get_option() {
+    return selected_option;
 }
 
-int checkout::price() {
-
-}
-
-void checkout::set_option() {
-
-}
-
-int checkout::get_option() {
-
+int checkout::costs() {
+    return 0;
 }
 
 checkout::~checkout() {
@@ -38,23 +38,15 @@ checkout::~checkout() {
 // DINE IN
 
 dinein::dinein() {
-
+    number = 0;
 }
 
-string dinein::name() {
-
-}
-
-int dinein::table_number() {
-
-}
-
-void dinein::set_table_number() {
-
+void dinein::set_table_number(int table) {
+    number = table;
 }
 
 int dinein::get_table_number() {
-
+    return number;
 }
 
 dinein::~dinein() {
@@ -64,23 +56,22 @@ dinein::~dinein() {
 // TAKEOUT
 
 takeout::takeout() {
-
+    package = 0;
+    optionSelected = " ";
 }
 
-string takeout::name() {
+void takeout::set_packageType(int Type) {
+    package = Type;
 
-}
-
-string takeout::package_type() {
-
-}
-
-void takeout::set_packageType() {
-
+    if(package == 1) {
+        optionSelected = "Regular";
+    } else if(package == 2) {
+        optionSelected = "Premium";
+    }
 }
 
 string takeout::get_packageType() {
-
+    return optionSelected;
 }
 
 takeout::~takeout() {
