@@ -38,6 +38,8 @@ int main() {
     cout << "Commands: " << endl;
     cout << "\tburger <id> - Adds a burger to the cart." << endl;
     cout << "\tdrink <id> <size> - Adds a drink with the given size to the cart." << endl;
+    cout << "\tfries <id> <size> - Adds a fries with the given size to the cart." << endl;
+    cout << "\tingredient <burger_id> <ingredient_id> - Adds the ingredient with the given id to the given burger already in the cart." << endl;
     cout << endl;
     cout << "\tremove <number> - Removes the item with the given number from the cart" << endl;
 
@@ -104,7 +106,7 @@ int main() {
             } else if (method == "cash") {
             
             } else {
-                cout << "Unrecognized payment method";
+                cout << "Unrecognized payment method.";
             }
         } else {
             cout << "Unknown command." << endl;

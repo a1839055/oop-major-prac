@@ -35,5 +35,6 @@ int main() {
 
     cart.remove_item(1);
 
+    // Should show just the drink and fries
     cout << cart.get_display() << endl;
 }
