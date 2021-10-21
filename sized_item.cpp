@@ -36,8 +36,9 @@ float* SizedItem::get_prices() {
     return prices;
 }
 
-void SizedItem::set_prices(float* p) {
+void SizedItem::set_prices(float* p, int pc) {
     prices = p;
+    prices_count = pc;
 }
 
 float SizedItem::get_price() {

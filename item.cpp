@@ -3,7 +3,6 @@
 
 #include "item.h"
 
-
 using namespace std;
 
 extern string to_string_precision(const float value, const int precision = 2);

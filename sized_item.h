@@ -18,7 +18,7 @@ class SizedItem : public Item {
         string get_size_display();
         
         float* get_prices();
-        void set_prices(float* prices);
+        void set_prices(float* prices, int prices_count);
 
         float get_price();
         
