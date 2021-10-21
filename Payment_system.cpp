@@ -9,11 +9,12 @@ using namespace std;
 
 // Payment PARENT
 
-Payment::Payment(){
+Payment::Payment(){ //Class constructor
     
 };
 
-Payment::Payment(float p_price, string p_customer_name, int order_num, int receipt_num, string pOrder_name){
+//Class constructor with initialisation methods
+Payment::Payment(float p_price, string p_customer_name, int order_num, int receipt_num, string pOrder_name){ 
     price = p_price;
     order_id = order_num;
     receipt_number = receipt_num;
